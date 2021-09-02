@@ -1,0 +1,24 @@
+public class Solution {
+    // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
+    public int majorityElement(final int[] A) {
+        
+        HashMap<Integer, Integer> Counter = new HashMap<Integer, Integer>();
+
+        for( int i : A){
+            if(Counter.containsKey(i))
+            {
+                Counter.put(i, Counter.get(i)+1);
+            }
+            else
+            {
+                Counter.put(i, 1);
+            }
+        }
+        for( int x : A){
+            if( Counter.get(x) > A.length/2 ){
+                return x;
+            }
+        }
+        return 0;
+    }
+}
